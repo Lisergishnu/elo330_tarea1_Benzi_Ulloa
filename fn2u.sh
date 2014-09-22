@@ -10,7 +10,7 @@ elif (( $# == 0 )); then
   #Solo analisis en directorio actual
   workingDir="$(pwd)";
   option=1;
-elif (( $# == 1)); then
+elif (( $# == 1 )); then
   #Analisis en directorio especificado
   workingDir=$1;
   option=1;
@@ -31,12 +31,14 @@ elif (( $option == 2 )); then
   while read archivo; do
     archivoSano="$(echo $archivo | sed 'y/áéíóúÁÉÍÓÚÑñ /aeiouAEIOUNn_/')"
     #echo Cambiando nombre de $archivo a $archivoSano
-    if [ -e "$workingDir/$archivoSano"]; then
-      mv "$workingDir/$archivo" "$workingDir/$archivoSano_1"
+    if [[ -e "$workingDir/$archivoSano" ]]; then
+      echo $archivoSano exists. It will be writen as $archivoSano"_"1
+      mv "$workingDir/$archivo" "$workingDir"/"$archivoSano"_1
     else
       mv "$workingDir/$archivo" "$workingDir/$archivoSano"
     fi
   done < /tmp/op$$
+  rm /tmp/op$$
   echo Done.
   exit $?
 else
