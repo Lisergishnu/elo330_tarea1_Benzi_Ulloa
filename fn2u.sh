@@ -39,7 +39,6 @@ elif (( $option == 2 )); then
     fi
   done < /tmp/op$$
   rm /tmp/op$$
-  echo Done.
   exit $?
 else
   echo ERROR: Option unspecified: $option;
