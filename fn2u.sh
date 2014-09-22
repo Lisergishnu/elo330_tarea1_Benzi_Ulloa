@@ -31,7 +31,11 @@ elif (( $option == 2 )); then
   while read archivo; do
     archivoSano="$(echo $archivo | sed 'y/áéíóúÁÉÍÓÚÑñ /aeiouAEIOUNn_/')"
     #echo Cambiando nombre de $archivo a $archivoSano
-    mv "$workingDir/$archivo" "$workingDir/$archivoSano"
+    if [ -e "$workingDir/$archivoSano"]; then
+      mv "$workingDir/$archivo" "$workingDir/$archivoSano_1"
+    else
+      mv "$workingDir/$archivo" "$workingDir/$archivoSano"
+    fi
   done < /tmp/op$$
   echo Done.
   exit $?
