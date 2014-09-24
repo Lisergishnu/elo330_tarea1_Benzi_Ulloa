@@ -129,6 +129,7 @@ do
 					# Index: indice ajustado para reemplazo
 					index=$(($i+1));
 					newname=$(echo $newname | sed "s/./$newchar/$index") # Se cambia el nombre en cuestion
+					#newname="${newname%?}" #Esto corrije bug en Aragorn que hace quel remplazo agregue el caracter '-'
 					changed=1 # Flag de nombre cambiado
 				fi
 			done
@@ -139,7 +140,7 @@ do
 			if (( "$changed" == 1 ))
 			then
 				echo "Directorio con caracter raro:"
-				printf "%s" $dir/$oldname # Se muestran el nombre antiguo y el nuevo
+				printf "%s\n" $dir/$oldname # Se muestran el nombre antiguo y el nuevo
 			fi
 			$0 $file 1
 			;;
@@ -176,6 +177,7 @@ do
 						# Index: indice ajustado para reemplazo
 						index=$(($i+1));
 						newname=$(echo $newname | sed "s/./$newchar/$index") # Se cambia el nombre en cuestion
+						#newname="${newname%?}" #Esto corrije bug en Aragorn que hace quel remplazo agregue el caracter '-'
 						changed=1 # Flag de nombre cambiado
 					fi
 				done
