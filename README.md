@@ -39,3 +39,9 @@ Retorno
 -------
 
 *fn2u* retorna 0 si no tuvo problemas, y > 0 en caso contrario.
+
+Dificultades
+------------
+
+Cuando *Aragorn* no aceptaba acentos, se copio recursivamente una carpeta de archivos con nombres con acento hacia él. Despues de muchos intentos se descubrió que por algún motivo se cambió la codificación de éstos y por eso no eran reconocidos por la expresión regular. 
+Es por esto que para probar el programa se recomienda generar por la terminal los archivos usando acentuación, ya que ahora permite *Aragorn* escribir acentos.
