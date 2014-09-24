@@ -186,7 +186,7 @@ do
 				if (( "$changed" == 1 ))
 				then
 					echo "Archivo con caracter raro:"
-					printf "%s" $dir/$oldname # Se muestran el nombre antiguo y el nuevo
+					printf "%s\n" $dir/$oldname # Se muestran el nombre antiguo y el nuevo
 				fi
 				;;
 			"2") 
