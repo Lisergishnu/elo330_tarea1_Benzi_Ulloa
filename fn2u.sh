@@ -194,7 +194,12 @@ do
 				then
 					echo "Cambiando nombres:"
 					printf "%s -> %s\n-----\n" $dir/$oldname $dir/$newname # Se muestran el nombre antiguo y el nuevo
-					mv $dir/$oldname $dir/$newname
+					if [[ -e "$dir/$newname" ]]; then
+      					echo $newname exists. It will be writen as $newname"_"1
+						mv $dir/$oldname $dir/"$newname"_1
+					else
+						mv $dir/$oldname $dir/$newname
+					fi
 				fi
 				;;
 			esac
