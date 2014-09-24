@@ -8,7 +8,7 @@ if (( $# > 2 )); then
 elif (( $# == 0 )); then
   #Default sin opciones
   #Solo analisis en directorio actual
-  workingDir="$(pwd)";
+  workingDir="";
   option=1;
 elif (( $# == 1 )); then
   #Analisis en directorio especificado
@@ -22,7 +22,7 @@ fi
 #Analisis y/o operacion en $1
 if (( $option == 1 )); then
   #echo Solo analisis en $workingDir;
-  ls $workingDir | sed -n '/[áéíóúÁÉÍÓÚÑñ ]/p'
+  ls -F -d1 $PWD/$workingDir/** | sed -n '/[áéíóúÁÉÍÓÚÑñ ]/p'
   exit $? #Regresa el retorno de la operacion anterior
 elif (( $option == 2 )); then
   #echo Analisis y operacion en $workingDir;
