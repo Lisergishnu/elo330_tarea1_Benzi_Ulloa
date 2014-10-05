@@ -1,0 +1,11 @@
+Revisión del ayudante:
+
+Documentación (30%):	100
+Ejecución P1 (35%):		90
+Ejecución P2 (35%):		100
+-----------------------------
+Total:					97
+
+Comentarios: La documentación es concisa. Contiene la información necesaria para ejecutar bien el programa, y cumple con su propósito.
+Para escanear los archivos con letras con tildes y espacios, funciona a la perfección, excepto cuando el nombre de la carpeta tiene espacios. Sin embargo corrige sin problemas aún cuando ocurre esto.
+[Se escaneó la versión nextVersion del programa]
